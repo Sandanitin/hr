@@ -1,6 +1,8 @@
 import React from 'react';
 
 const StatusBadge = ({ status }) => {
+  if (!status) return null;
+
   const statusConfig = {
     pending: {
       bg: 'bg-yellow-100',
@@ -29,7 +31,7 @@ const StatusBadge = ({ status }) => {
     },
   };
 
-  const config = statusConfig[status.toLowerCase()] || {
+  const config = statusConfig[status.toString().toLowerCase()] || {
     bg: 'bg-gray-100',
     text: 'text-gray-800',
     label: status,

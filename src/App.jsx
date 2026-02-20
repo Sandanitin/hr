@@ -6,7 +6,8 @@ import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
 import LeaveManagement from './pages/LeaveManagement'
 import Attendance from './pages/Attendance'
-import SuperAdminDashboard from './pages/admin/SuperAdminDashboard'
+import AdminUsers from './pages/admin/AdminUsers'
+import AdminReports from './pages/admin/AdminReports'
 import HRAdminDashboard from './pages/admin/HRAdminDashboard'
 import HREmployees from './pages/hr/HREmployees'
 import HRLeaveApprovals from './pages/hr/HRLeaveApprovals'
@@ -50,18 +51,10 @@ function App() {
           }
         />
         <Route
-          path="/admin/companies"
-          element={
-            <ProtectedRoute>
-              <SuperAdminDashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
           path="/admin/users"
           element={
             <ProtectedRoute>
-              <SuperAdminDashboard />
+              <AdminUsers />
             </ProtectedRoute>
           }
         />
@@ -69,7 +62,7 @@ function App() {
           path="/admin/reports"
           element={
             <ProtectedRoute>
-              <SuperAdminDashboard />
+              <AdminReports />
             </ProtectedRoute>
           }
         />

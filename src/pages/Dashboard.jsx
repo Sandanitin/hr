@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
-import SuperAdminDashboard from './admin/SuperAdminDashboard';
+import AdminHome from './admin/AdminHome';
 import HRAdminDashboard from './admin/HRAdminDashboard';
 import EmployeeDashboard from './employee/EmployeeDashboard';
 import DashboardLayout from '../components/Layout/DashboardLayout';
@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   // Show role-specific dashboard
   if (user?.role === 'ADMIN') {
-    return <SuperAdminDashboard />;
+    return <AdminHome />;
   } else if (user?.role === 'HR') {
     return <HRAdminDashboard />;
   } else {
@@ -28,7 +28,7 @@ const Dashboard = () => {
     return (
       <DashboardLayout>
         <WelcomeBanner />
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column */}
           <div className="lg:col-span-2 space-y-6">
