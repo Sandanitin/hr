@@ -24,11 +24,36 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (email, password) => {
-    // Demo credentials - all users belong to the same company
+    // Demo credentials – all users belong to the same company (Vikrin)
     const users = {
-      'super@demo.com': { email: 'super@demo.com', role: 'ADMIN', name: 'Super Admin', company: 'Tech Corp', companyId: 1 },
-      'hr@demo.com': { email: 'hr@demo.com', role: 'HR', name: 'HR Admin', company: 'Tech Corp', companyId: 1 },
-      'employee@demo.com': { email: 'employee@demo.com', role: 'EMPLOYEE', name: 'Employee User', company: 'Tech Corp', companyId: 1 },
+      'super@demo.com': {
+        email: 'super@demo.com',
+        role: 'ADMIN',
+        name: 'Super Admin',
+        company: 'Vikrin',
+        companyId: 1,
+      },
+      'hr@demo.com': {
+        email: 'hr@demo.com',
+        role: 'HR',
+        name: 'HR Manager',
+        company: 'Vikrin',
+        companyId: 1,
+      },
+      'manager@demo.com': {
+        email: 'manager@demo.com',
+        role: 'MANAGER',
+        name: 'Team Manager',
+        company: 'Vikrin',
+        companyId: 1,
+      },
+      'employee@demo.com': {
+        email: 'employee@demo.com',
+        role: 'EMPLOYEE',
+        name: 'Ravi Kumar',
+        company: 'Vikrin',
+        companyId: 1,
+      },
     };
 
     if (users[email] && password === 'demo123') {
@@ -37,7 +62,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('user', JSON.stringify(userData));
       return { success: true, user: userData };
     }
-    return { success: false, error: 'Invalid credentials' };
+    return { success: false, error: 'Invalid credentials. Use demo123 as password.' };
   };
 
   const logout = () => {
@@ -51,4 +76,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-

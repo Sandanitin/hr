@@ -22,14 +22,14 @@ const Login = () => {
     setLoading(true);
 
     const result = login(email, password);
-    
+
     if (result.success) {
       toast.success(`Welcome, ${result.user.name}!`);
       navigate('/dashboard');
     } else {
       toast.error(result.error || 'Invalid credentials');
     }
-    
+
     setLoading(false);
   };
 
@@ -43,14 +43,14 @@ const Login = () => {
       <div className="max-w-md w-full">
         {/* Logo */}
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold text-white mb-2">keka</h1>
-          <p className="text-purple-200">HR Management System</p>
+          <h1 className="text-5xl font-bold text-white mb-2">vikrin</h1>
+          <p className="text-purple-200">HR & Payroll Management</p>
         </div>
 
         {/* Login Card */}
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Sign In</h2>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -108,6 +108,13 @@ const Login = () => {
                 className="w-full text-left px-3 py-2 text-sm bg-purple-50 hover:bg-purple-100 rounded-lg transition text-purple-700"
               >
                 <span className="font-semibold">HR Admin:</span> hr@demo.com
+              </button>
+              <button
+                type="button"
+                onClick={() => fillDemoCredentials('manager@demo.com')}
+                className="w-full text-left px-3 py-2 text-sm bg-purple-50 hover:bg-purple-100 rounded-lg transition text-purple-700"
+              >
+                <span className="font-semibold">Manager:</span> manager@demo.com
               </button>
               <button
                 type="button"

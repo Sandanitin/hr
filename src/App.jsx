@@ -16,6 +16,10 @@ import HRCalendar from './pages/hr/HRCalendar'
 import HRProvidentFund from './pages/hr/HRProvidentFund'
 import HRPayroll from './pages/hr/HRPayroll'
 import EmployeeDashboard from './pages/employee/EmployeeDashboard'
+import EmployeeProfile from './pages/employee/EmployeeProfile'
+import EmployeeLeave from './pages/employee/EmployeeLeave'
+import EmployeePayslips from './pages/employee/EmployeePayslips'
+import EmployeeAttendance from './pages/employee/EmployeeAttendance'
 import Finances from './pages/Finances'
 import ProtectedRoute from './components/ProtectedRoute'
 
@@ -114,11 +118,44 @@ function App() {
             </ProtectedRoute>
           }
         />
+        {/* Employee self-service routes */}
+        <Route
+          path="/employee/dashboard"
+          element={
+            <ProtectedRoute>
+              <EmployeeDashboard />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/employee/profile"
           element={
             <ProtectedRoute>
-              <EmployeeDashboard />
+              <EmployeeProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/employee/leave"
+          element={
+            <ProtectedRoute>
+              <EmployeeLeave />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/employee/payslips"
+          element={
+            <ProtectedRoute>
+              <EmployeePayslips />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/employee/attendance"
+          element={
+            <ProtectedRoute>
+              <EmployeeAttendance />
             </ProtectedRoute>
           }
         />
@@ -130,10 +167,11 @@ function App() {
             </ProtectedRoute>
           }
         />
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </div>
   )
 }
 
 export default App
-
